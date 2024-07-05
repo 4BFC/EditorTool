@@ -1,7 +1,7 @@
 ---
-name: "[FE] insert issue Title"
+name: "[BE] insert issue Title"
 about: Suggest an idea for this project
-title: "[FE] insert issue Title"
+title: "[BE] insert issue Title"
 labels: ''
 assignees: ''
 
