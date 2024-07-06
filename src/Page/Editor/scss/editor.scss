@@ -1,0 +1,130 @@
+.editor {
+  // background-color: yellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1098px;
+
+  .logo-image {
+    // background-color: aqua;
+    display: flex;
+    margin-left: 248px;
+
+    .group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      margin-left: 166px;
+
+      .main-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--btn-main-bg);
+        color: var(--btn-main-font);
+        font-weight: bold;
+        width: 123px;
+        height: 39px;
+        border-radius: 10px;
+      }
+
+      #info-bg {
+        background-color: var(--editor-icon-bg);
+        margin-top: 21px;
+        border-radius: 50px;
+        width: 25px;
+        height: 25px;
+
+        #info-icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--btn-main-bg);
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .edit {
+    width: 100%;
+
+    hr {}
+
+    h3 {
+      font-weight: bold;
+      font-size: 18px;
+      margin: 30px 0px 23px 0px;
+    }
+
+
+    .container {
+      background-color: var(--editor-main-bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+
+      .group {
+        // background-color: blueviolet;
+        margin: 0px 0px 23px 0px;
+        width: 1062px;
+
+        >.btn {
+          // background-color: coral;
+          display: flex;
+          justify-content: flex-end;
+          margin: 22px 0px 22px 0px;
+          width: 100%;
+
+          #btn {
+            margin-left: 43px;
+          }
+        }
+
+        .tool {
+          background-color: var(--primary-bg);
+          display: flex;
+          justify-content: flex-start;
+          border-radius: 10px 10px 0px 0px;
+
+          .elements {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin: 14.5px 21px 14.5px 21px;
+
+            >.btn {
+              display: flex;
+              align-items: center;
+              background: none;
+              border: none;
+            }
+
+            #tool {
+              font-weight: bold;
+              color: var(--btn-main-bg);
+              margin-right: 25px;
+            }
+          }
+        }
+
+        .input {
+          background-color: var(--primary-bg);
+          display: flex;
+          margin-top: 2px;
+          border-radius: 0px 0px 10px 10px;
+
+          .elements {
+            // background-color: azure;
+            width: 100%;
+            margin: 14.5px 21px 14.5px 21px;
+          }
+        }
+      }
+    }
+  }
+
+}

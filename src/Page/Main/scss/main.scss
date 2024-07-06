@@ -1,0 +1,38 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .group {
+    margin-top: 50px;
+
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin-top: 40px;
+      background-color: aqua;
+      width: 246px;
+      height: 78px;
+      font-size: var(--btn-font-size);
+      border-radius: 10px;
+    }
+
+    #todo {
+      text-decoration: none;
+      color: inherit;
+      background-color: var(--btn-main-bg);
+      color: var(--btn-main-font);
+    }
+
+    #not-yet {
+      text-decoration: none;
+      color: inherit;
+      background-color: var(--btn-sub-bg);
+      color: var(--btn-sub-font);
+    }
+
+  }
+}
