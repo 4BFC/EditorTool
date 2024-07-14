@@ -30,6 +30,9 @@
       }
 
       #info-bg {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: var(--editor-icon-bg);
         margin-top: 21px;
         border-radius: 50px;
@@ -50,81 +53,167 @@
   .edit {
     width: 100%;
 
-    hr {}
-
     h3 {
       font-weight: bold;
       font-size: 18px;
       margin: 30px 0px 23px 0px;
     }
 
+    .template {
+      .edit-mode {
+        background-color: var(--editor-main-bg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        margin-bottom: 20px;
 
-    .container {
-      background-color: var(--editor-main-bg);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border-radius: 10px;
+        .group {
+          // background-color: blueviolet;
+          margin: 0px 0px 23px 0px;
+          width: 1062px;
 
-      .group {
-        // background-color: blueviolet;
-        margin: 0px 0px 23px 0px;
-        width: 1062px;
-
-        >.btn {
-          // background-color: coral;
-          display: flex;
-          justify-content: flex-end;
-          margin: 22px 0px 22px 0px;
-          width: 100%;
-
-          #btn {
-            margin-left: 43px;
-          }
-        }
-
-        .tool {
-          background-color: var(--primary-bg);
-          display: flex;
-          justify-content: flex-start;
-          border-radius: 10px 10px 0px 0px;
-
-          .elements {
+          >.btn {
+            // background-color: coral;
             display: flex;
-            align-items: center;
-            width: 100%;
-            margin: 14.5px 21px 14.5px 21px;
+            // justify-content: flex-end;
+            margin: 22px 0px 22px 0px;
+            // width: 100%;
+            margin-left: 838px;
+            margin-right: 24px;
 
-            >.btn {
+            >#btn {
+              margin-left: 45px;
+            }
+          }
+
+          .tool {
+            background-color: var(--primary-bg);
+            display: flex;
+            justify-content: flex-start;
+            border-radius: 10px 10px 0px 0px;
+
+            .elements {
               display: flex;
               align-items: center;
-              background: none;
-              border: none;
-            }
+              width: 100%;
+              margin: 14.5px 21px 14.5px 21px;
 
-            #tool {
-              font-weight: bold;
-              color: var(--btn-main-bg);
-              margin-right: 25px;
+              >.btn {
+                display: flex;
+                align-items: center;
+                background: none;
+                border: none;
+              }
+
+              #tool {
+                font-weight: bold;
+                color: var(--btn-main-bg);
+                margin-right: 25px;
+              }
             }
           }
-        }
 
-        .input {
-          background-color: var(--primary-bg);
-          display: flex;
-          margin-top: 2px;
-          border-radius: 0px 0px 10px 10px;
+          .input {
+            background-color: var(--primary-bg);
+            display: flex;
+            margin-top: 2px;
+            border-radius: 0px 0px 10px 10px;
 
-          .elements {
-            // background-color: azure;
-            width: 100%;
-            margin: 14.5px 21px 14.5px 21px;
+            .elements {
+              // background-color: azure;
+              width: 100%;
+              margin: 14.5px 21px 14.5px 21px;
+            }
           }
         }
       }
+
+      .save-mode {
+        background-color: var(--editor-main-bg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        margin-bottom: 20px;
+
+        .group {
+          margin: 0px 0px 23px 0px;
+
+          >.btn {
+            display: flex;
+            // justify-content: flex-end;
+            margin: 22px 0px 22px 0px;
+            // width: 1050px;
+            // width: 100%;
+            margin-left: 856px;
+            margin-right: 24px;
+
+            >#btn {
+              margin-left: 45px;
+            }
+          }
+
+          .tool {
+            .elements {
+              >.btn {}
+
+              #tool {}
+            }
+          }
+
+          .input {
+            background-color: var(--primary-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2px;
+            height: 84px;
+            width: 1098px;
+
+            .elements {
+              width: 1062px;
+            }
+          }
+        }
+
+
+      }
     }
+
+    // >.group {
+    //   display: flex;
+
+    //   #btn-add {
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     font-weight: bold;
+    //     width: 123px;
+    //     height: 39px;
+    //     border-radius: 10px;
+    //     background: var(--btn-main-bg);
+    //     color: var(--btn-main-font);
+    //     border: none;
+    //     margin-right: 20px;
+    //   }
+
+    //   #btn-delete {
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     font-weight: bold;
+    //     width: 123px;
+    //     height: 39px;
+    //     border-radius: 10px;
+    //     background: var(--btn-main-bg);
+    //     color: var(--btn-main-font);
+    //     border: none;
+
+    //   }
+    // }
   }
 
 }
