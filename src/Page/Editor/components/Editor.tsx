@@ -6,22 +6,53 @@ import saveIcon from "../image/save-icon.png";
 import editIcon from "../image/edit-icon.png";
 import deleteIcon from "../image/delete-icon.png";
 
-import underLineIcon from "../image/underline-icon.png";
-import boldIcon from "../image/bold-icon.png";
-import italicIcon from "../image/italic-icon.png";
-import lineThroughIcon from "../image/line-through-icon.png";
 import "../scss/editor.scss";
 import Button from "../../common/components/Button/Button";
 import Template from "./Template";
-import { addTemplate, deleteTemplate } from "../function/handleTemplate";
+// import { addTemplate, deleteTemplate } from "../function/handleTemplate";
 
 const Editor = () => {
-  const [isTemplates, setTemplates] = useState<React.ReactNode[]>([
-    <Template
-      deleteFunction={() => deleteTemplate({ setTemplate: setTemplates })}
-      key={0}
-    />,
+  interface TemplateInit {
+    key: number;
+    element: JSX.Element;
+  }
+  // const [isTemplates, setTemplates] = useState<React.ReactNode[]>([
+  //   <Template
+  //     deleteFunction={() => deleteTemplate({ setTemplate: setTemplates })}
+  //     key={isKey}
+  //   />,
+  // ]);
+
+  const [isTemplates, setTemplates] = useState<TemplateInit[]>([
+    {
+      key: 0,
+      element: <Template key={0} deleteFunction={() => deleteTemplate(0)} />,
+    },
   ]);
+
+  const addTemplate = () => {
+    const newKey = isTemplates[isTemplates.length - 1].key + 1;
+    setTemplates((prevTemplates) => [
+      ...prevTemplates,
+      {
+        key: newKey,
+        element: (
+          <Template
+            key={newKey}
+            deleteFunction={() => deleteTemplate(newKey)}
+          />
+        ),
+      },
+    ]);
+    console.log(newKey);
+    console.log(isTemplates.length);
+  };
+
+  const deleteTemplate = (templateKey: number) => {
+    setTemplates((prevTemplates) =>
+      prevTemplates.filter((template) => template.key !== templateKey)
+    );
+  };
 
   return (
     <div className="editor">
@@ -37,29 +68,13 @@ const Editor = () => {
       <div className="edit">
         <hr />
         <h3>ToDoList</h3>
-        {isTemplates.map((element, index) => (
-          <div className="template" key={index}>
-            {element}
+        {isTemplates.map((template) => (
+          <div className="template" key={template.key}>
+            {template.element}
           </div>
         ))}
         <div className="group">
-          <Button
-            id="btn-add"
-            onClick={() => {
-              addTemplate({
-                setTemplate: setTemplates,
-                Template: (
-                  <Template
-                    deleteFunction={() =>
-                      deleteTemplate({ setTemplate: setTemplates })
-                    }
-                    key={isTemplates.length}
-                  />
-                ),
-              });
-            }}
-            link="추가"
-          />
+          <Button id="btn-add" onClick={addTemplate} link="추가" />
           {/* <Button
             id="btn-delete"
             onClick={() => {

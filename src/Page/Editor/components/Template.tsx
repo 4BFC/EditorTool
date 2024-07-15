@@ -8,6 +8,7 @@ import Button from "../../common/components/Button/Button";
 import Tool from "./Tool";
 
 interface TemplateProps {
+  key?: any;
   deleteFunction: () => void;
 }
 
