@@ -1,21 +1,24 @@
-interface TemplateSetProps {
-  id?: any,
-  setTemplate: React.Dispatch<React.SetStateAction<React.ReactNode[]>>;
-}
-interface TemplateProps extends TemplateSetProps {
-  Template: React.ReactNode;  // 컴포넌트 인스턴스를 직접 받도록 변경
+interface IAddTemplate {
+  isTemplate: React.ReactNode[];
+  setTemplate: React.Dispatch<React.SetStateAction<{ key: number, element: React.ReactNode }[]>>;
+  newKey: number;
+  Template: React.ReactNode;
 }
 
-export const addTemplate = ({ id, setTemplate, Template }: TemplateProps) => {
-  console.log("add");
+export const addTemplate = ({ setTemplate, newKey, Template }: IAddTemplate) => {
   setTemplate((prevTemplates) => [
     ...prevTemplates,
-    Template
+    {
+      key: newKey,
+      element: Template
+    },
   ]);
+  console.log(newKey);
 };
 
-export const deleteTemplate = ({ id, setTemplate }: TemplateSetProps) => {
-  console.log("delete", id);
-  setTemplate((prevTemplates) => prevTemplates.slice(0, -1));
-  // setTemplate((prevTemplates) => prevTemplates.filter(template => template.id !== id));
+export const deleteTemplate = ({ setTemplate, newKey }: IAddTemplate) => {
+  //templateKey = 삭제를 하기 위해 선택된 template
+  setTemplate((prevTemplates) =>
+    prevTemplates.filter((template) => template.key !== newKey)
+  );
 };

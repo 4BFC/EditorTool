@@ -16,12 +16,6 @@ const Editor = () => {
     key: number;
     element: JSX.Element;
   }
-  // const [isTemplates, setTemplates] = useState<React.ReactNode[]>([
-  //   <Template
-  //     deleteFunction={() => deleteTemplate({ setTemplate: setTemplates })}
-  //     key={isKey}
-  //   />,
-  // ]);
 
   const [isTemplates, setTemplates] = useState<TemplateInit[]>([
     {
@@ -30,8 +24,10 @@ const Editor = () => {
     },
   ]);
 
+  const newKey =
+    isTemplates.length === 0 ? 0 : isTemplates[isTemplates.length - 1].key + 1;
+
   const addTemplate = () => {
-    const newKey = isTemplates[isTemplates.length - 1].key + 1;
     setTemplates((prevTemplates) => [
       ...prevTemplates,
       {
@@ -49,6 +45,7 @@ const Editor = () => {
   };
 
   const deleteTemplate = (templateKey: number) => {
+    //templateKey = 삭제를 하기 위해 선택된 template
     setTemplates((prevTemplates) =>
       prevTemplates.filter((template) => template.key !== templateKey)
     );
