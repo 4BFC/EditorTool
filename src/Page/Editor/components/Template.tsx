@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-import saveIcon from "../image/save-icon.png";
-import editIcon from "../image/edit-icon.png";
-import deleteIcon from "../image/delete-icon.png";
+import { image } from "../../common/utils/img.data";
 
 import Button from "../../common/components/Button/Button";
 import Tool from "./Tool";
@@ -27,7 +25,7 @@ const Template: React.FC<TemplateProps> = ({ deleteFunction }) => {
               setName("save-mode");
               setState(false);
             }}
-            link={<img src={saveIcon} id="btn" />}
+            link={<img src={image.saveIcon} id="btn" />}
           />
 
           <Button
@@ -37,7 +35,7 @@ const Template: React.FC<TemplateProps> = ({ deleteFunction }) => {
               setName("edit-mode");
               setState(true);
             }}
-            link={<img src={editIcon} id="btn" />}
+            link={<img src={image.editIcon} id="btn" />}
           />
 
           <Button
@@ -46,7 +44,7 @@ const Template: React.FC<TemplateProps> = ({ deleteFunction }) => {
               console.log("delete");
               deleteFunction();
             }}
-            link={<img src={deleteIcon} id="btn" />}
+            link={<img src={image.deleteIcon} id="btn" />}
           />
         </div>
         <div className="tool">{isState && <Tool />}</div>

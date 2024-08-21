@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import mainLogo from "../../../image/logo-icon.svg";
-
-import saveIcon from "../image/save-icon.png";
-import editIcon from "../image/edit-icon.png";
-import deleteIcon from "../image/delete-icon.png";
+import { image } from "../../common/utils/img.data";
 
 import "../scss/editor.scss";
 import Button from "../../common/components/Button/Button";
@@ -12,6 +8,7 @@ import Template from "./Template";
 // import { addTemplate, deleteTemplate } from "../function/handleTemplate";
 
 const Editor = () => {
+  //useState의 interface 영역
   interface TemplateInit {
     key: number;
     element: JSX.Element;
@@ -24,6 +21,7 @@ const Editor = () => {
     },
   ]);
 
+  //?
   const newKey =
     isTemplates.length === 0 ? 0 : isTemplates[isTemplates.length - 1].key + 1;
 
@@ -54,7 +52,7 @@ const Editor = () => {
   return (
     <div className="editor">
       <div className="logo-image">
-        <img src={mainLogo} />
+        <img src={image.mainLogo} />
         <div className="group">
           <Button className="main-btn" link={<Link to="/">메인으로</Link>} />
           <div id="info-bg">

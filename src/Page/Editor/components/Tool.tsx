@@ -1,14 +1,11 @@
-import underLineIcon from "../image/underline-icon.png";
-import boldIcon from "../image/bold-icon.png";
-import italicIcon from "../image/italic-icon.png";
-import lineThroughIcon from "../image/line-through-icon.png";
+import { image } from "../../common/utils/img.data";
 
 const Tool = () => {
   return (
     <div className="elements">
       <span id="tool">Tool</span>
       <button className="btn">
-        <img id="" src={underLineIcon} />
+        <img id="" src={image.underLineIcon} />
       </button>
     </div>
   );

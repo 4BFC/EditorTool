@@ -4,7 +4,7 @@ interface IAddTemplate {
   newKey: number;
   Template: React.ReactNode;
 }
-
+//addTemplate의 매개변수는 객체 형태이다. 그래서 타입 또한 객체 `{}`로 지정이 되어야한다.
 export const addTemplate = ({ setTemplate, newKey, Template }: IAddTemplate) => {
   setTemplate((prevTemplates) => [
     ...prevTemplates,

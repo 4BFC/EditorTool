@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../../common/components/Button/Button";
-import mainLogo from "../../../image/logo-icon.svg";
 import "../scss/main.scss";
+import { image } from "../../common/utils/img.data";
 
 const Main = () => {
   return (
     <div className="main">
       <div className="logo-image">
-        <img src={mainLogo} />
+        <img src={image.mainLogo} />
       </div>
       <div className="group">
         <Button
