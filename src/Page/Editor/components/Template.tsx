@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-
 import { image } from "../../common/utils/img.data";
 
 import Button from "../../common/components/Button/Button";
 import Tool from "./Tool";
 
-interface TemplateProps {
-  key?: any;
-  deleteFunction: () => void;
-}
+import { TemplateProps } from "../../common/utils/interface.data";
 
-const Template: React.FC<TemplateProps> = ({ deleteFunction }) => {
+const Template: React.FC<TemplateProps> = (Props) => {
   const [isName, setName] = useState("edit-mode");
   const [isState, setState] = useState(true);
 
@@ -42,7 +38,7 @@ const Template: React.FC<TemplateProps> = ({ deleteFunction }) => {
             id="btn"
             onClick={() => {
               console.log("delete");
-              deleteFunction();
+              Props.deleteFunction();
             }}
             link={<img src={image.deleteIcon} id="btn" />}
           />
