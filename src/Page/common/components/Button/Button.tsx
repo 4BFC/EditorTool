@@ -1,16 +1,10 @@
 import React from "react";
+import { ButtonProps } from "../../utils/interface.data";
 
-interface ButtonProps {
-  className?: string;
-  id?: string;
-  link?: React.ReactNode | string;
-  onClick?: () => void;
-}
-
-const Button: React.FC<ButtonProps> = ({ className, id, link, onClick }) => {
+const Button: React.FC<ButtonProps> = (Props) => {
   return (
-    <div className={className} id={id} onClick={onClick}>
-      {link}
+    <div className={Props.className} id={Props.id} onClick={Props.onClick}>
+      {Props.link}
     </div>
   );
 };

@@ -5,49 +5,28 @@ import { image } from "../../common/utils/img.data";
 import "../scss/editor.scss";
 import Button from "../../common/components/Button/Button";
 import Template from "./Template";
-// import { addTemplate, deleteTemplate } from "../function/handleTemplate";
+import {
+  addTemplate,
+  deleteTemplate,
+} from "../function/handleTemplate.controller";
+import { TemplateInit } from "../../common/utils/interface.data";
 
 const Editor = () => {
-  //useState의 interface 영역
-  interface TemplateInit {
-    key: number;
-    element: JSX.Element;
-  }
-
   const [isTemplates, setTemplates] = useState<TemplateInit[]>([
     {
       key: 0,
-      element: <Template key={0} deleteFunction={() => deleteTemplate(0)} />,
+      element: (
+        <Template
+          key={0}
+          deleteFunction={() => deleteTemplate(setTemplates, 0)}
+        />
+      ),
     },
   ]);
 
   //?
   const newKey =
     isTemplates.length === 0 ? 0 : isTemplates[isTemplates.length - 1].key + 1;
-
-  const addTemplate = () => {
-    setTemplates((prevTemplates) => [
-      ...prevTemplates,
-      {
-        key: newKey,
-        element: (
-          <Template
-            key={newKey}
-            deleteFunction={() => deleteTemplate(newKey)}
-          />
-        ),
-      },
-    ]);
-    console.log(newKey);
-    console.log(isTemplates.length);
-  };
-
-  const deleteTemplate = (templateKey: number) => {
-    //templateKey = 삭제를 하기 위해 선택된 template
-    setTemplates((prevTemplates) =>
-      prevTemplates.filter((template) => template.key !== templateKey)
-    );
-  };
 
   return (
     <div className="editor">
@@ -66,19 +45,31 @@ const Editor = () => {
         {isTemplates.map((template) => (
           <div className="template" key={template.key}>
             {template.element}
+            {/* 해당 버튼이 Template 안으로 들어가야함 */}
+            <Button
+              id="btn-delete"
+              onClick={() => {
+                deleteTemplate(setTemplates, template.key);
+              }}
+              link="삭제"
+            />
           </div>
         ))}
         <div className="group">
-          <Button id="btn-add" onClick={addTemplate} link="추가" />
-          {/* <Button
-            id="btn-delete"
+          <Button
+            id="btn-add"
             onClick={() => {
-              deleteTemplate({
-                setTemplate: setTemplates,
-              });
+              addTemplate(
+                setTemplates,
+                newKey,
+                <Template
+                  key={newKey}
+                  deleteFunction={() => deleteTemplate(setTemplates, newKey)}
+                />
+              );
             }}
-            link="삭제"
-          /> */}
+            link="추가"
+          />
         </div>
       </div>
     </div>
