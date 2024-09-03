@@ -6,8 +6,8 @@ export const image = {
   editIcon: require("../../Editor/image/edit-icon.png"),
   deleteIcon: require("../../Editor/image/delete-icon.png"),
   // Editor>Tool
-  underLineIcon: require("../../Editor/image/underline-icon.png"),
-  boldIcon: require("../../Editor/image/bold-icon.png"),
-  italicIcon: require("../../Editor/image/italic-icon.png"),
-  lineThroughIcon: require("../../Editor/image/line-through-icon.png"),
+  underLineIcon: require("../../Editor/image/underline-icon.svg").default,
+  boldIcon: require("../../Editor/image/bold-icon.svg").default,
+  italicIcon: require("../../Editor/image/italic-icon.svg").default,
+  lineThroughIcon: require("../../Editor/image/line-through-icon.svg").default,
 }
